@@ -1,5 +1,5 @@
 
-# 🧠 ChatBot Server
+# 🧠 AI ChatBot Server
 
 A production-ready chatbot server powered by OpenAI's API and built using FastAPI. It features persistent conversation storage using MongoDB and is organized with a clean, modular structure.
 
@@ -18,7 +18,7 @@ A production-ready chatbot server powered by OpenAI's API and built using FastAP
 ## 📁 Project Structure
 
 ```bash
-ChatBot/
+AI-Chatbot/
 ├── agents/
 │   └── chat_gpt_agent.py       # Chat agent logic
 ├── models/
@@ -61,8 +61,8 @@ assert getenv("OPENAI_API_KEY"), "Missing required environment variable: OPENAI_
 Clone the repo:
 
 ```bash
-git clone https://your-repo-url
-cd ChatBot
+git clone https://github.com/akshaykumar-ak/AI-Chatbot.git
+cd AI-Chatbot
 ```
 
 Install dependencies:
