@@ -102,7 +102,8 @@ chmod +x prod-run.sh
 ---
 
 ## 📃 API Overview
-
+- `GET /client/list`: Get clients list
+- `GET /list/{client_id}`: Get agents lists for a client
 - `POST /add_config`: Add or Update client agent config details using client_id and config_id
 - `GET /get_config`: Get client agent config details using client_id and config_id
 - `WS/WSS /chat/{client_id}/{config_id}/{chat_id}`: Chat with Agent using Websocket.
