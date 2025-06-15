@@ -31,11 +31,6 @@ class ClientAgentConfig(BaseModel):
     bot_name: str = "Untitled Bot"
 
 
-class FetchClientAgentConfig(BaseModel):
-    client_id: str
-    config_id: str
-
-
 class ConversationHistory(BaseModel):
     client_id: str
     config_id: str
@@ -43,3 +38,13 @@ class ConversationHistory(BaseModel):
     chat_id: str
     messages: List[Message] = []
     timestamp: datetime = Field(default_factory=lambda: datetime.now(UTC))
+
+
+class FetchClientAgentConfig(BaseModel):
+    client_id: str
+    config_id: str
+
+
+class User(BaseModel):
+    username: str = Field(description="username for authentication", example="Akshay")
+    password: str = Field(description="password for authentication", example="ScurePassword")
