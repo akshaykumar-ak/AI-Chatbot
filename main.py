@@ -290,9 +290,12 @@ async def start_chat(websocket: WebSocket, client_id: str, config_id: str, chat_
         client_agent_config = ClientAgentConfig.model_validate(result)
         agent_config = client_agent_config.agent_config
         chat_history = await conversation_collection.find_one({"client_id": client_id, "config_id": config_id, "chat_id": chat_id})
-        chat_history = ConversationHistory.model_validate(chat_history)
-        chat_agent = ChatGptAgent(agent_config=agent_config, messages=chat_history.messages)
-        if not chat_history.messages:
+        if chat_history:
+            chat_history = ConversationHistory.model_validate(chat_history)
+            chat_agent = ChatGptAgent(agent_config=agent_config, messages=chat_history.messages)
+        else:
+            chat_agent = ChatGptAgent(agent_config=agent_config)
+        if not chat_history:
             if agent_config.user_initial_message:
                 user_initial_message = Message(text=agent_config.user_initial_message)
                 bot_response = await chat_agent.generate_response(user_initial_message)
